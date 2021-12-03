@@ -1,20 +1,24 @@
 {
   "name": "build-yourself-x",
   "version": "1.0.0",
-  "description": "build yourself lib, tool, etc",
+  "description": "build yourself lib, tool, framework, etc",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/YUFENGWANG/build-yourself-x.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "richard",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/YUFENGWANG/build-yourself-x/issues"
   },
-  "homepage": "https://github.com/YUFENGWANG/build-yourself-x#readme"
+  "homepage": "https://github.com/YUFENGWANG/build-yourself-x#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "jest": "^27.4.3"
+  }
 }
