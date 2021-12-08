@@ -1,3 +1,3 @@
 # build yourself x
 
-learning by doing, learning by sharing.
+Learning by doing, learning by sharing.

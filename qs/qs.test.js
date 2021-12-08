@@ -1,4 +1,6 @@
 const qs = require("./index");
+// const qs = require("qs");
+
 
 describe("test parse()", () => {
   test("parses a simple string", () => {
@@ -10,5 +12,6 @@ describe("test parse()", () => {
       chl: "Hello|World"
     });
     expect(qs.parse("foo=bar&baz")).toEqual({ foo: "bar", baz: "" });
+    expect(qs.parse('foo=c++')).toEqual({ foo: 'c  ' })
   });
 });
