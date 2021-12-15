@@ -1,3 +1,5 @@
+const toString = Object.prototype.toString
+
 // JSON 类型， object, array, string, number, true, false, null ; 详见 https://www.json.org/json-en.html
 const deepClone = val => {
   let res;
@@ -8,7 +10,7 @@ const deepClone = val => {
     });
     return res;
   }
-  if (typeof val === "object") {
+  if (toString.call(val) === '[object Object]') {
     res = {};
     for (let key in val) {
       res[key] = typeof val[key] === "object" ? deepClone(val[key]) : val[key];
