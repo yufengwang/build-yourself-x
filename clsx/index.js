@@ -4,7 +4,7 @@ const toString = Object.prototype.toString;
 
 /**
  * @param {import('./index.d').Param} params
- * */
+ */
 const clsx = (...params) => {
   let res = "";
   for (let el of params) {
