@@ -11,12 +11,18 @@ const clsx = (...params) => {
     if (typeof el === "string" && el) {
       res += `${el} `;
     }
+
+    if (typeof el === "number" && el) {
+      res += `${el} `;
+    }
+
     if (Array.isArray(el)) {
       const arr = flatten(el);
-      res += clsx(...arr);
+      res += `${clsx(...arr)} `;
     }
+    
     if (toString.call(el) === "[object Object]") {
-      Object.keys(el).forEach(e => {
+      Object.keys(el).forEach((e) => {
         if (el[e]) {
           res += `${e} `;
         }
@@ -27,5 +33,5 @@ const clsx = (...params) => {
 };
 
 module.exports = {
-  clsx
+  clsx,
 };
