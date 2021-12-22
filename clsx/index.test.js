@@ -32,6 +32,41 @@ describe("test clsx()", () => {
     ).toEqual("foo bar bat");
   });
 
+ 
+  test("arrays", () => {
+    expect(clsx([])).toEqual("");
+    expect(clsx(["foo"])).toEqual("foo");
+    expect(clsx(["foo", "bar"])).toEqual("foo bar");
+    expect(clsx(["foo", 0 && "bar", 1 && "baz"])).toEqual("foo baz");
+  });
+
+  test("arrays (nested)", () => {
+    expect(clsx([[[]]])).toEqual("");
+    expect(clsx([[["foo"]]])).toEqual("foo");
+    expect(clsx([true, [["foo"]]])).toEqual("foo");
+    expect(clsx(["foo", ["bar", ["", [["baz"]]]]])).toEqual("foo bar baz");
+  });
+
+  test("arrays (variadic)", () => {
+    expect(clsx([], [])).toEqual("");
+    expect(clsx(["foo"], ["bar"])).toEqual("foo bar");
+    expect(clsx(["foo"], null, ["baz", ""], true, "", [])).toEqual("foo baz");
+  });
+
+  test("arrays (no `push` escape)", () => {
+    expect(clsx({ push: 1 })).toEqual("push");
+    expect(clsx({ pop: true })).toEqual("pop");
+    expect(clsx({ push: true })).toEqual("push");
+    expect(clsx("hello", { world: 1, push: true })).toEqual("hello world push");
+  });
+
+  test("functions", () => {
+    const foo = () => {};
+    expect(clsx(foo, "hello")).toEqual("hello");
+    expect(clsx(foo, "hello", clsx)).toEqual("hello");
+    expect(clsx(foo, "hello", [[clsx], "world"])).toEqual("hello world");
+  });
+
   test("objects (variadic) prefix", () => {
     expect(prefixClsx("wm", {}, {})).toEqual("wm");
     expect(prefixClsx("wm", { foo: 1 }, { bar: 2 })).toEqual(
@@ -50,5 +85,4 @@ describe("test clsx()", () => {
         { baz: null, bat: Infinity }
       )
     ).toEqual("wm wm-foo wm-bar wm-bat");
-  });
 });
