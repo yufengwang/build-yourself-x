@@ -1,4 +1,4 @@
-const { clsx } = require("./index");
+const { clsx, prefixClsx } = require("./index");
 
 describe("test clsx()", () => {
   test("simple string", () => {
@@ -30,5 +30,25 @@ describe("test clsx()", () => {
     expect(
       clsx({ foo: 1 }, {}, {}, { bar: "a" }, { baz: null, bat: Infinity })
     ).toEqual("foo bar bat");
+  });
+
+  test("objects (variadic) prefix", () => {
+    expect(prefixClsx("wm", {}, {})).toEqual("wm");
+    expect(prefixClsx("wm", { foo: 1 }, { bar: 2 })).toEqual(
+      "wm wm-foo wm-bar"
+    );
+    expect(prefixClsx("wm", { foo: 1 }, null, { baz: 1, bat: 0 })).toEqual(
+      "wm wm-foo wm-baz"
+    );
+    expect(
+      prefixClsx(
+        "wm",
+        { foo: 1 },
+        {},
+        {},
+        { bar: "a" },
+        { baz: null, bat: Infinity }
+      )
+    ).toEqual("wm wm-foo wm-bar wm-bat");
   });
 });

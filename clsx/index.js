@@ -26,6 +26,22 @@ const clsx = (...params) => {
   return res.trim();
 };
 
+const prefixClsx = (prefix, ...params) => {
+  const res = clsx(...params);
+  return prefix
+    .concat(" ")
+    .concat(
+      res
+        ? res
+            .split(" ")
+            .map(el => `${prefix}-${el}`)
+            .join(" ")
+        : ""
+    )
+    .trim();
+};
+
 module.exports = {
-  clsx
+  clsx,
+  prefixClsx
 };
