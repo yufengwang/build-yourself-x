@@ -32,7 +32,6 @@ describe("test clsx()", () => {
     ).toEqual("foo bar bat");
   });
 
- 
   test("arrays", () => {
     expect(clsx([])).toEqual("");
     expect(clsx(["foo"])).toEqual("foo");
@@ -85,4 +84,20 @@ describe("test clsx()", () => {
         { baz: null, bat: Infinity }
       )
     ).toEqual("wm wm-foo wm-bar wm-bat");
+  });
+
+  // expect(
+  //   clsx({
+  //     toString: function() {
+  //       return "classFromMethod";
+  //     },
+  //   })
+  // ).toEqual("classFromMethod");
+  // var Class1 = function() {};
+  // var Class2 = function() {};
+  // Class1.prototype.toString = function() {
+  //   return "classFromMethod";
+  // };
+  // Class2.prototype = Object.create(Class1.prototype);
+  // expect(clsx(new Class2())).toEqual("classFromMethod");
 });
