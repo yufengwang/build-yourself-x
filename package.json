@@ -1,7 +1,7 @@
 {
   "name": "build-yourself-x",
   "version": "1.0.0",
-  "description": "build yourself lib, tool, framework, etc",
+  "description": "Build yourself lib, tool, framework, etc",
   "main": "index.js",
   "scripts": {
     "test": "jest"
