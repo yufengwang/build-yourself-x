@@ -1,4 +1,7 @@
-const { deepEqual } = require("./index");
+// const { deepEqual } = require("./index");
+// const { deepEqual } = require("./index");
+const { isEqual :deepEqual } = require("./old");
+
 
 function same(a, b) {
   expect(deepEqual(a, b)).toBe(true);
