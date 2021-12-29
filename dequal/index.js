@@ -1,6 +1,9 @@
 /**
  * 所用到的知识点：
  * 递归，分类讨论，NaN !== NaN
+ * 针对集合，不全等有两个特征
+ * 1. 数量不一致
+ * 2. 数量一致，有差集
  * @param {any} src
  * @param {any} src1
  * @returns {boolean}
