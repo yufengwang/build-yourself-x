@@ -1,0 +1,1 @@
+const { vegemite } = require("./index");
