@@ -1,6 +1,6 @@
 // const { deepEqual } = require("./index");
-// const { deepEqual } = require("./index");
-const { isEqual :deepEqual } = require("./old");
+const { deepEqual } = require("./index");
+// const { isEqual :deepEqual } = require("./old");
 
 
 function same(a, b) {
@@ -10,7 +10,7 @@ function same(a, b) {
 function different(a, b) {
   expect(deepEqual(a, b)).toBe(false);
 }
-
+// {a: b} 
 describe("test deepEqual", () => {
   test("scalars", () => {
     same(1, 1);

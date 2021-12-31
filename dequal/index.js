@@ -4,17 +4,21 @@
  * 针对集合，不全等有两个特征
  * 1. 数量不一致
  * 2. 数量一致，有差集
- * @param {any} src
- * @param {any} src1
+ * @param {unknown} src: ;
+ * @param {unk} src1
  * @returns {boolean}
  */
 const deepEqual = (src, src1) => {
+  // src = {}
+  // src1 ={}
   let ctor, len;
-  // 如果 src, src1 严格等， return true
+  // 如果 src, src1 严格等， return true；过滤基本类型
   if (src === src1) {
     return true;
   }
-  // 假值，有且只有 6 个; null undefined '' 0 false NaN
+
+  // 假值，有且只有 6 个; null undefined '' 0 false
+  // NaN
 
   // 真值，且同类型
   if (src && src1 && (ctor = src.constructor) === src1.constructor) {
@@ -55,7 +59,8 @@ const deepEqual = (src, src1) => {
   }
   // NaN !== NaN，当且仅当 src, src1 均为 NaN 时 return true，其余均 return false；
   // 校验任一参数为假值  或 ctor 不一致的场景
-  return src !== src && src1 !== src1;
+ // 引用类型, NaN
+ return src !== src && src1 !== src1;
 };
 
 const isPlainObject = (obj) => {
